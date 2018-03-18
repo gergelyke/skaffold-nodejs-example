@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1alpha1
+kind: Config
+build:
+  artifacts:
+  - imageName: node-app
+    workspace: .
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+    - paths:
+      - k8s-app.yml
+      parameters:
+        IMAGE_NAME: node-app
