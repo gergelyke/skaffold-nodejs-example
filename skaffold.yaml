@@ -1,14 +1,18 @@
-apiVersion: skaffold/v1alpha1
+apiVersion: skaffold/v1alpha2
 kind: Config
 build:
   artifacts:
   - imageName: node-app
     workspace: .
-  local: {}
+    docker: {}
+    bazel: null
+  local:
+    skipPush: null
+  googleCloudBuild: null
+  kaniko: null
 deploy:
+  helm: null
   kubectl:
     manifests:
-    - paths:
-      - k8s-app.yml
-      parameters:
-        IMAGE_NAME: node-app
+    - k8s-app.yml
+  kustomize: null
