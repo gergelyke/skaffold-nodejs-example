@@ -12,6 +12,7 @@ spec:
       labels:
         app: node-app
     spec:
+      terminationGracePeriodSeconds: 0
       containers:
       - name: node-app
         image: node-app
